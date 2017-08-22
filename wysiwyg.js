@@ -54,15 +54,42 @@ var famousPeople = [{
 
 }]
 
-var counter = 0;
+var createCard = document.getElementById('containerEl');
+domStrings();
 
-forf (var i =0; i < famousPeople.length; i++) {
+function domStrings() {
+    var domString = '';
+    for (var i =0; i < famousPeople.length; i++) {
+      var cardString = "";
+      
+      domString += '<person>';
+      domString += '<h1>' + famousPeople[i].title + '</h1>';
+      domString += '<h2>' + famousPeople[i].name + '</h2>';
+      domString += '<section>' + famousPeople[i].bio + famousPeople[i].imageBio + '</section>';
+      domString += '<footer>' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</footer>';
+      domString += '</person>';
+      cardString += domString;
+    }
+      writeToDom(cardString);
+    }
+      function writeToDom(strang) {
+  createCard.innerHTML += strang;
+    }
 
-  domString += `<person>
-    <header>Name and title go here</header>
-    <section>Bio and image go here</section>
-    <footer>Lifespan info goes here</footer>
-  </person>`
-}
 
+// var counter = 0;
+// var outputEl = document.getElementById("outputEl");
+// for (; counter < 5; counter++) {
+//   // Give each person element a unique identifier
+//   outputEl.innerHTML += `<div class="person__container" id="person--${counter}"></div>`;
+// }
+
+// // Now containerEl will have elements in it
+// var containerEl = document.getElementsByClassName("person__container");
+
+// // Event listeners are created
+// for (var i = 0; i < containerEl.length; i++) {
+//   containerEl[i].addEventListener("click", function (event) {
+//     // Logic to execute when the element is clicked
+//   });
 
