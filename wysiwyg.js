@@ -7,7 +7,7 @@ var famousPeople = [{
     birth: 1905,
     death: 1982
   }
-}
+},
 
 {
 	title: "President",
@@ -18,7 +18,7 @@ var famousPeople = [{
     birth: 1743,
     death: 1826	
    }
-}
+},
 
 {
 	title: "Electrical Engineer",
@@ -29,7 +29,7 @@ var famousPeople = [{
     birth: 1856,
     death: 1943	
    }
-}
+},
 
 {
 	title: "Inventor",
@@ -40,7 +40,7 @@ var famousPeople = [{
     birth: 1747,
     death: 1797	
    }
-}
+},
 
 {
 	title: "CEO",
@@ -53,3 +53,16 @@ var famousPeople = [{
    }
 
 }]
+
+var counter = 0;
+
+forf (var i =0; i < famousPeople.length; i++) {
+
+  domString += `<person>
+    <header>Name and title go here</header>
+    <section>Bio and image go here</section>
+    <footer>Lifespan info goes here</footer>
+  </person>`
+}
+
+
