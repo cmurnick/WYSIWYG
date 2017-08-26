@@ -54,50 +54,79 @@ var famousPeople = [{
 
 }]
 
-// var createCard = document.getElementById('containerEl');
-// domStrings();
 
-// function domStrings() {
-//     var domString = '';
-//     for (var i =0; i < famousPeople.length; i++) {
-//       var cardString = "";
+
+// var counter = 0;
+// var outputEl = document.getElementById("outputEl");
+// for (; counter < 5; counter++) {
+//   outputEl.innerHTML += `<div class="person__container" id="person--${counter}">`;
+// }
+
+
+var createCard = document.getElementById('outputEl');
+domStrings();
+
+function domStrings(people) {
+    var cardString = '';
+    for (var i =0; i < famousPeople.length; i++) {
       
-  //     domString += '<person id="eachPerson">';
-  //     domString += '<h1 class="title">' + famousPeople[i].title + '</h1>';
-  //     domString += '<h2 class="name">' + famousPeople[i].name + '</h2>';
-  //     domString += `<img src="${famousPeople[i].image}">`;
-  //     domString += '<section>' + famousPeople[i].bio + '</section>';
-  //     domString += '<footer id="bottom">' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</footer>';
-  //     domString += '</person>';
-  //     cardString += domString;
-  //   }
-  //     writeToDom(cardString);
-  //   }
-  //     function writeToDom(strang) {
-  // createCard.innerHTML += strang;
-  //   }
+      var domString= '';
+      domString += `<div class="person__container" id="people_${i}">`;
+      domString +=    '<h1 class="title">' + famousPeople[i].title + '</h1>';
+      domString +=    '<h2 class="name">' + famousPeople[i].name + '</h2>';
+      domString +=    `<img class="picture" src="${famousPeople[i].image}">`;
+      domString +=  '<section class="bio">' + famousPeople[i].bio + '</section>';
+      domString +=  '<footer id="bottom">' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</footer>';
+      domString += '</div>';
+      cardString += domString;
+    }
+
+      writeToDom(cardString);
+    }
+  
+
+  function writeToDom(strang) {
+    createCard.innerHTML += strang;
+    }
+
+// var selectedCard;
+
+// document.getElementById("outputEl").addEventListener("click", function(event){
+//   changeBorder(event);
+//   printSelectedDescription();
+
+// })
 
 
-var counter = 0;
-var outputEl = document.getElementById("outputEl");
-for (; counter < 5; counter++) {
-
-function buildOutputEl(people)
-  // Give each person element a unique identifier
-  outputEl.innerHTML += `<div class="person__container" id="person--${counter}">`;
-  outputEl.innerHTML += `<h1 id="title">${famousPeople[i].title}</h1>`;
-  outputEl.innerHTML += `<h2 id="name">${famousPeople[i].name}</h2>`;
-  outputEl.innerHTML += `<img id="picture"src="${famousPeople[i].image}">`;
-  outputEl.innerHTML += `<section id="bio">${famousPeople[i].bio}</section>`;
-  outputEl.innerHTML += `<footer id="bottom">${famousPeople[i].lifespan.birth}--" - "--${famousPeople[i].lifespan.death}</footer>`;
-  outputEl.innerHTML += `</div>`;
-}
+// function changeBorder(event) {
+    
+//     if (event.target.classList.contains("child")) {
+//       selectedCard = event.target.parentNode;
+//     } else if (event.target.parentNode.parentNode.classList.contains("card")) {
+//       selectedCard = event.target.parentNode.parentNode;
+//     }
+//     // } else if (event.target.classList.contains("product")) {
+//       selectedCard = event.target;
+//     }
+    
+//    selectedCard.classList.add("borderCards");
 
 
 
+// function buildOutputEl(people)
+//   // Give each person element a unique identifier
+//   outputEl.innerHTML += `<h1 id="title">${famousPeople[i].title}</h1>`;
+//   outputEl.innerHTML += `<h2 id="name">${famousPeople[i].name}</h2>`;
+//   outputEl.innerHTML += `<img id="picture" src="${famousPeople[i].image}">`;
+//   outputEl.innerHTML += `<section id="bio">${famousPeople[i].bio}</section>`;
+//   outputEl.innerHTML += `<footer id="bottom">${famousPeople[i].lifespan.birth}" - "${famousPeople[i].lifespan.death}</footer>`;
+//   outputEl.innerHTML += `</div>`;
+// }
 
-// Now containerEl will have elements in it
-var containerEl = document.getElementsByClassName("person__container");
+
+
+// // Now containerEl will have elements in it
+// var containerEl = document.getElementsByClassName("person__container");
 
 // Event listeners are created
 

@@ -15,7 +15,7 @@
 }
 
 /*each person's cards styling*/
-#containerEl {
+#outputEl {
 	display: inline-flex;
 	flex-wrap: wrap;
 	flex-direction: row;
@@ -77,3 +77,8 @@ img {
 	width: 250px;
 	
 }
+
+.borderCards {
+	border: 4px dashed orange;
+}
+
