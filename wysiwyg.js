@@ -72,11 +72,11 @@ function domStrings(people) {
       
       var domString= '';
       domString += `<div class="person__container" id="people_${i}">`;
-      domString +=    '<h1 class="title">' + famousPeople[i].title + '</h1>';
-      domString +=    '<h2 class="name">' + famousPeople[i].name + '</h2>';
-      domString +=    `<img class="picture" src="${famousPeople[i].image}">`;
-      domString +=  '<section class="bio">' + famousPeople[i].bio + '</section>';
-      domString +=  '<footer id="bottom">' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</footer>';
+      domString +=    '<div class="title-child">' + famousPeople[i].title + '</div>';
+      domString +=      '<h2 class="name- baby">' + famousPeople[i].name + '</h2>';
+      domString +=      `<img class="picture-baby" src="${famousPeople[i].image}">`;
+      domString +=    '<div class="bio-child">' + famousPeople[i].bio + '</div>';
+      domString +=    '<div class="bottom-child">' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</div>';
       domString += '</div>';
       cardString += domString;
     }
@@ -89,28 +89,35 @@ function domStrings(people) {
     createCard.innerHTML += strang;
     }
 
-// var selectedCard;
+var selectedCard;
 
-// document.getElementById("outputEl").addEventListener("click", function(event){
-//   changeBorder(event);
-//   printSelectedDescription();
+// document.getElementById("outputEl")
+createCard.addEventListener("click", function(event){
+  changeBorder(event);
+  printSelectedDescription();
 
-// })
+})
 
 
-// function changeBorder(event) {
+function changeBorder(event) {
     
-//     if (event.target.classList.contains("child")) {
-//       selectedCard = event.target.parentNode;
-//     } else if (event.target.parentNode.parentNode.classList.contains("card")) {
-//       selectedCard = event.target.parentNode.parentNode;
-//     }
-//     // } else if (event.target.classList.contains("product")) {
-//       selectedCard = event.target;
-//     }
+    if (event.target.classList.contains("child")) {
+      selectedCard = event.target.parentNode;
+    } else if (event.target.parentNode.parentNode.classList.contains("baby")) {
+      selectedCard = event.target.parentNode.parentNode;
+    }
+    // } else if (event.target.classList.contains("product")) {
+    //   selectedCard = event.target;
+    // 
+    console.log(selectedCard);
+    selectedCard.classList.add("borderCards");
+  }
     
-//    selectedCard.classList.add("borderCards");
+  function printSelectedDescription() {
 
+  var description = selectedCard.childNodes[2].childNodes[0].innerHTML;
+  console.log(description);
+}
 
 
 // function buildOutputEl(people)

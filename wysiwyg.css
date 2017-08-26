@@ -46,16 +46,16 @@ body {
 	background-color: rgb(222,222,222);
 
 }
-#name {
+.name {
 	width: 250px;
 	text-align: center;
 }
 
-#title {
+.title {
 	text-align: center;
 }
 
-#bottom {
+.bottom-sib {
 	margin-top: 15px;
 	font-weight: bold;
 	text-align: center;
