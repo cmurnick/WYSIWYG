@@ -1,0 +1,79 @@
+/*label input info*/
+.labelInfo {
+	font-weight: bold;
+	font-size: 25px;
+	text-align: center;
+}
+
+#inputBox {
+	font-size: 25px;
+}
+
+.labelInfo,
+#inputBox {
+	margin: 15px 0een;
+}
+
+/*each person's cards styling*/
+#containerEl {
+	display: inline-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	
+}
+
+.person__container:nth-child(even) {
+	background-color: #f9f1bb;
+}
+
+.person__container:nth-child(odd) {
+	background-color: #d2efeb;
+}
+
+.person__container {
+	align-content: center;
+	max-width: 250px;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid gray;
+	background-color: white;
+
+}
+
+
+body {
+	background-color: rgb(222,222,222);
+
+}
+#name {
+	width: 250px;
+	text-align: center;
+}
+
+#title {
+	text-align: center;
+}
+
+#bottom {
+	margin-top: 15px;
+	font-weight: bold;
+	text-align: center;
+
+}
+
+section {
+	margin-top: 15px;
+
+}
+
+img {
+	display; block;
+	max-width:250px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+
+	width: 250px;
+	
+}
