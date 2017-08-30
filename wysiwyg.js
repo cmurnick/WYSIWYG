@@ -72,11 +72,11 @@ function domStrings(people) {
       
       var domString= '';
       domString += `<div class="person__container" id="people_${i}">`;
-      domString +=    '<div class="title-child">' + famousPeople[i].title + '</div>';
-      domString +=      '<h2 class="name- baby">' + famousPeople[i].name + '</h2>';
-      domString +=      `<img class="picture-baby" src="${famousPeople[i].image}">`;
-      domString +=    '<div class="bio-child">' + famousPeople[i].bio + '</div>';
-      domString +=    '<div class="bottom-child">' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</div>';
+      domString +=      '<h1 class="title child">' + famousPeople[i].title + '</h1>';
+      domString +=      '<h2 class="name child">' + famousPeople[i].name + '</h2>';
+      domString +=      `<img class="picture child" src="${famousPeople[i].image}">`;
+      domString +=      `<div id="bioChange_${i}" class="bio child">${famousPeople[i].bio}</div>`;
+      domString +=      '<div class="bottom child">' + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + '</div>';
       domString += '</div>';
       cardString += domString;
     }
@@ -89,53 +89,127 @@ function domStrings(people) {
     createCard.innerHTML += strang;
     }
 
-var selectedCard;
+
 
 // document.getElementById("outputEl")
 createCard.addEventListener("click", function(event){
   changeBorder(event);
-  printSelectedDescription();
+  console.log(event.target);
+  // printSelectedDescription();
 
 })
 
 
+var selectedCard;
 function changeBorder(event) {
     
     if (event.target.classList.contains("child")) {
       selectedCard = event.target.parentNode;
-    } else if (event.target.parentNode.parentNode.classList.contains("baby")) {
-      selectedCard = event.target.parentNode.parentNode;
+
+      if (document.getElementsByClassName("borderCards").length > 0) {
+        console.log("in if")
+        selectedCard.classList.remove("borderCards");
+
+      }
+    } else if (event.target.classList.contains("person__container")) {
+      selectedCard = event.target;
+
+      if (document.getElementsByClassName("borderCards").length > 0) {
+        console.log("in if")
+        selectedCard.classList.remove("borderCards");
+
+      }
     }
-    // } else if (event.target.classList.contains("product")) {
-    //   selectedCard = event.target;
-    // 
-    console.log(selectedCard);
-    selectedCard.classList.add("borderCards");
+    selectedCard.classList.toggle("borderCards");
+    getFocus();
   }
     
-  function printSelectedDescription() {
+  // function printSelectedDescription() {
 
-  var description = selectedCard.childNodes[2].childNodes[0].innerHTML;
-  console.log(description);
+
+ 
+
+
+// var inputBox = document.getElementById("inputBox");
+// var outputMirror =  document.getElementById("outputEl");
+// inputBox.addEventListener('keypress', function(e){
+//   console.log(e);
+
+//    outputMirror.innerHTML = inputBox.value + e.key;
+
+// })
+
+
+function getFocus () {
+  document.getElementById("inputBox").focus();
 }
 
+document.getElementById("inputBox").addEventListener("keyup", printMirror);
 
-// function buildOutputEl(people)
-//   // Give each person element a unique identifier
-//   outputEl.innerHTML += `<h1 id="title">${famousPeople[i].title}</h1>`;
-//   outputEl.innerHTML += `<h2 id="name">${famousPeople[i].name}</h2>`;
-//   outputEl.innerHTML += `<img id="picture" src="${famousPeople[i].image}">`;
-//   outputEl.innerHTML += `<section id="bio">${famousPeople[i].bio}</section>`;
-//   outputEl.innerHTML += `<footer id="bottom">${famousPeople[i].lifespan.birth}" - "${famousPeople[i].lifespan.death}</footer>`;
-//   outputEl.innerHTML += `</div>`;
+
+
+function printMirror () {
+  selectedCard.childNodes[3].innerHTML = inputBox.value;
+  
+}
+
+document.getElementById("inputBox").addEventListener("keyup", clearText); 
+
+function clearText(e) {
+   if (e.keyCode===13) {
+    console.log(e);
+     inputBox.value = "";
+     selectedCard.childNodes[3].innerHTML = `${inputBox.value}`;
+     // inputBox.blur();
+      }
+  };
+//  var description = selectedCard.childNodes[2].childNodes[0].innerHTML;
+//   console.log(description);
+// }
+//mirror text from text box to elemet
+
+// var people = document.getElementsByClassName("person__container");
+
+// var passBioId = "";
+// for(var i = 0; i < people.length; i++){
+//   people[i].addEventListener("click", function(e){
+//     getFocus();
+//     passBioId = e.target;
+//     passBioId = passBioId.lastChild.previousSibling.getAttribute('id');
+
+//        // passBioId = document.getElementById("people_1");
+//   });
 // }
 
+// document.getElementById("inputBox").addEventListener("keypress", function(e){
+//       passBioId[0].innerHTML = this.value;
+//     });
 
 
-// // Now containerEl will have elements in it
-// var containerEl = document.getElementsByClassName("person__container");
 
-// Event listeners are created
+// // inputBox.addEventListener('keypress', function(e){
+// //   console.log(e.target);
+// //   document.getElementById("outputEl").addEventListener("click", getFocus);
+
+
+
+
+// // function buildOutputEl(people)
+// //   // Give each person element a unique identifier
+// //   outputEl.innerHTML += `<h1 id="title">${famousPeople[i].title}</h1>`;
+// //   outputEl.innerHTML += `<h2 id="name">${famousPeople[i].name}</h2>`;
+// //   outputEl.innerHTML += `<img id="picture" src="${famousPeople[i].image}">`;
+// //   outputEl.innerHTML += `<section id="bio">${famousPeople[i].bio}</section>`;
+// //   outputEl.innerHTML += `<footer id="bottom">${famousPeople[i].lifespan.birth}" - "${famousPeople[i].lifespan.death}</footer>`;
+// //   outputEl.innerHTML += `</div>`;
+// // }
+
+
+
+// // // Now containerEl will have elements in it
+// // var containerEl = document.getElementsByClassName("person__container");
+
+// // Event listeners are created
 
 
 // for (var i = 0; i < containerEl.length; i++) {
